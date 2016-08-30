@@ -23,7 +23,7 @@ void Ar_character::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
 
-	if (GEngine) camDir = FVector(0,0,GEngine->GetFirstLocalPlayerController(GetWorld())->PlayerCameraManager->GetCameraRotation);
+	if (GEngine) camDir = FVector(0,0,GEngine->GetFirstLocalPlayerController(GetWorld())->PlayerCameraManager->GetCameraRotation().Yaw);
 
 }
 
@@ -42,6 +42,14 @@ void Ar_character::MoveVertical(float inputAxisY)
 void Ar_character::MoveHorizontal(float inputAxisX)
 {
 	if (!bDisableMovment) AddMovementInput(camDir.RightVector, inputAxisX);
+}
+
+void Ar_character::DashToggle()
+{
+}
+
+void Ar_character::DashCoolDownToggle()
+{
 }
 
 

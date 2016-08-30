@@ -14,9 +14,23 @@ private:
 	FVector camDir;
 
 public:
-	
-	bool bDisableMovment;
-	
+	UPROPERTY(EditAnywhere)
+		bool bDisableMovment;
+	UPROPERTY(EditAnywhere)
+		bool bDisableAim;
+	UPROPERTY(EditAnywhere)
+		bool bInvincible;
+	UPROPERTY(EditAnywhere)
+		bool bCanDash;
+	UPROPERTY(EditAnywhere)
+		bool bIsDashing;
+	UPROPERTY(EditAnywhere)
+		bool bIsStunned;
+	UPROPERTY(EditAnywhere)
+		bool dashTimer;
+	UPROPERTY(EditAnywhere)
+		bool dashCoolDown;	
+
 	// Sets default values for this character's properties
 	Ar_character();
 
@@ -30,9 +44,14 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
 	UFUNCTION(BlueprintCallable, Category="Movement")
-	void MoveVertical(float inputAxisY);
+		void MoveVertical(float inputAxisY);
 	
 	UFUNCTION(BlueprintCallable, Category="Movement")
-	void MoveHorizontal(float inputAxisX);
+		void MoveHorizontal(float inputAxisX);
 
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+		void DashToggle();
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+		void DashCoolDownToggle();
 };
