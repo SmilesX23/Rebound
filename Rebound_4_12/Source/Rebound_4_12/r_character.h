@@ -15,6 +15,8 @@ private:
 
 public:
 	UPROPERTY(EditAnywhere)
+		int playerID;
+	UPROPERTY(EditAnywhere)
 		bool bDisableMovment;
 	UPROPERTY(EditAnywhere)
 		bool bDisableAim;
@@ -26,10 +28,28 @@ public:
 		bool bIsDashing;
 	UPROPERTY(EditAnywhere)
 		bool bIsStunned;
-	UPROPERTY(EditAnywhere)
-		bool dashTimer;
-	UPROPERTY(EditAnywhere)
-		bool dashCoolDown;	
+	UPROPERTY(EditAnywhere, Category="Dash")
+		float dashTimer;
+	UPROPERTY(EditAnywhere, Category = "Dash")
+		float dashCoolDown;	
+	UPROPERTY(EditAnywhere, Category = "Dash")
+		float dashSpeed;
+	UPROPERTY(EditAnywhere, Category = "Dash")
+		FVector dashVector;
+	UPROPERTY(EditAnywhere, Category = "Dash")
+		FTimerHandle dashHandle;
+	UPROPERTY(EditAnyWhere, Category = "Dash")
+		UParticleSystem* dashParticle;
+	UPROPERTY(EditAnyWhere, Category = "Dash")
+		UParticleSystem* dashCooldownParticle;
+	UPROPERTY(EditAnywhere, Category = "Dash")
+		UStaticMeshComponent* dashCoolDownMesh;
+	UPROPERTY(EditAnywhere, Category = "Dash")
+		UAudioComponent* dashCooldownAudio;
+	UPROPERTY(EditAnywhere, Category = "Dash")
+		UAudioComponent* dashReadyAudio;
+	UPROPERTY(EditAnywhere, Category = "Dash")
+		UAudioComponent* dashAudio;
 
 	// Sets default values for this character's properties
 	Ar_character();
@@ -54,4 +74,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 		void DashCoolDownToggle();
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+		void DashCancel();
 };
