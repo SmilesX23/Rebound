@@ -14,45 +14,45 @@ private:
 	FVector camDir;
 
 public:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int playerID;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bDisableMovment;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bDisableAim;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bInvincible;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bCanDash;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bIsDashing;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bIsStunned;
-	UPROPERTY(EditAnywhere, Category="Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Dash")
 		float dashTimer;
-	UPROPERTY(EditAnywhere, Category = "Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dash")
 		float dashCoolDownTimer;	
-	UPROPERTY(EditAnywhere, Category = "Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dash")
 		float dashSpeed;
-	UPROPERTY(EditAnywhere, Category = "Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dash")
 		FVector dashVector;
-	UPROPERTY(EditAnywhere, Category = "Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dash")
 		FTimerHandle dashHandle;
-	UPROPERTY(EditAnyWhere, Category = "Dash")
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Dash")
 		UParticleSystem* dashParticle;
-	UPROPERTY(EditAnyWhere, Category = "Dash")
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Dash")
 		UParticleSystem* dashCooldownParticle;
 	UPROPERTY(EditAnywhere, Category = "Dash")
-		UStaticMeshComponent* dashCoolDownMesh;
+		USceneComponent* dashCoolDownMesh;
+	UPROPERTY(EditAnywhere,Category = "Dash")
+		USceneComponent* dashCooldownAudio;
 	UPROPERTY(EditAnywhere, Category = "Dash")
-		UAudioComponent* dashCooldownAudio;
+		USceneComponent* dashReadyAudio;
 	UPROPERTY(EditAnywhere, Category = "Dash")
-		UAudioComponent* dashReadyAudio;
-	UPROPERTY(EditAnywhere, Category = "Dash")
-		UAudioComponent* dashAudio;
-	UPROPERTY(EditAnywhere, Category = "Basic Movement")
+		USceneComponent* dashAudio;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Basic Movement")
 		float RunSpeed;
-	UPROPERTY(EditAnywhere, Category = "Basic Movement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Basic Movement")
 		float ChargeRunSpeed;
 
 	// Sets default values for this character's properties

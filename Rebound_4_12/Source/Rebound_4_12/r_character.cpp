@@ -44,12 +44,12 @@ void Ar_character::SetupPlayerInputComponent(class UInputComponent* InputCompone
 
 void Ar_character::MoveVertical(float inputAxisY)
 {
-	if (!bDisableMovment) AddMovementInput(camDir.ForwardVector, inputAxisY);
+	if (!bDisableMovment) AddMovementInput(camDir.ForwardVector, inputAxisY*-1);
 }
 
 void Ar_character::MoveHorizontal(float inputAxisX)
 {
-	if (!bDisableMovment) AddMovementInput(camDir.RightVector, inputAxisX);
+	if (!bDisableMovment) AddMovementInput(camDir.RightVector, inputAxisX*-1);
 }
 
 void Ar_character::DashToggle()
@@ -61,7 +61,7 @@ void Ar_character::DashToggle()
 			bIsDashing = true;
 			bInvincible = true;
 			GetCapsuleComponent()->SetSimulatePhysics(true);
-			dashVector = GetPendingMovementInputVector();
+			dashVector = GetLastMovementInputVector();
 			GetCapsuleComponent()->AddImpulse(dashVector * dashSpeed);
 			GetCapsuleComponent()->SetEnableGravity(false);
 			GetWorld()->GetTimerManager().SetTimer(dashHandle, this, &Ar_character::DashToggle, dashTimer, true);
