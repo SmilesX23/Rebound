@@ -31,7 +31,7 @@ public:
 	UPROPERTY(EditAnywhere, Category="Dash")
 		float dashTimer;
 	UPROPERTY(EditAnywhere, Category = "Dash")
-		float dashCoolDown;	
+		float dashCoolDownTimer;	
 	UPROPERTY(EditAnywhere, Category = "Dash")
 		float dashSpeed;
 	UPROPERTY(EditAnywhere, Category = "Dash")
@@ -50,6 +50,10 @@ public:
 		UAudioComponent* dashReadyAudio;
 	UPROPERTY(EditAnywhere, Category = "Dash")
 		UAudioComponent* dashAudio;
+	UPROPERTY(EditAnywhere, Category = "Basic Movement")
+		float RunSpeed;
+	UPROPERTY(EditAnywhere, Category = "Basic Movement")
+		float ChargeRunSpeed;
 
 	// Sets default values for this character's properties
 	Ar_character();

@@ -16,6 +16,8 @@ Ar_character::Ar_character()
 	dashReadyAudio->SetupAttachment(RootComponent);
 	dashCooldownAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("DashCooldownAudio"));
 	dashCooldownAudio->SetupAttachment(RootComponent);
+	dashAudio = CreateDefaultSubobject<UAudioComponent>(TEXT("DashAudio"));
+	dashCooldownAudio->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
@@ -84,7 +86,7 @@ void Ar_character::DashCoolDownToggle()
 		bCanDash = false;
 		GetMesh()->SetScalarParameterValueOnMaterials("SpecialEmissiveStrength", 80.0f);
 		dashCoolDownMesh->ToggleVisibility();
-		
+		GetWorld()->GetTimerManager().SetTimer(dashHandle, this, &Ar_character::DashCoolDownToggle, dashCoolDownTimer, true);
 	}
 	else
 	{
@@ -92,7 +94,6 @@ void Ar_character::DashCoolDownToggle()
 		GetMesh()->SetScalarParameterValueOnMaterials("SpecialEmissiveStrength", 0.0f);
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), dashCooldownParticle, GetActorTransform(), true);
 		dashCoolDownMesh->ToggleVisibility();
-
 	}
 }
 
