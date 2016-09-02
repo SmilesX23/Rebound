@@ -42,13 +42,13 @@ public:
 		UParticleSystem* dashParticle;
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Dash")
 		UParticleSystem* dashCooldownParticle;
-	UPROPERTY(EditAnywhere, Category = "Dash")
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Dash")
 		USceneComponent* dashCoolDownMesh;
-	UPROPERTY(EditAnywhere,Category = "Dash")
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite,Category = "Dash")
 		USceneComponent* dashCooldownAudio;
-	UPROPERTY(EditAnywhere, Category = "Dash")
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Dash")
 		USceneComponent* dashReadyAudio;
-	UPROPERTY(EditAnywhere, Category = "Dash")
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Dash")
 		USceneComponent* dashAudio;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Basic Movement")
 		float RunSpeed;

@@ -61,7 +61,7 @@ void Ar_character::DashToggle()
 			bIsDashing = true;
 			bInvincible = true;
 			GetCapsuleComponent()->SetSimulatePhysics(true);
-			dashVector = GetLastMovementInputVector();
+			dashVector = GetActorForwardVector();
 			GetCapsuleComponent()->AddImpulse(dashVector * dashSpeed);
 			GetCapsuleComponent()->SetEnableGravity(false);
 			GetWorld()->GetTimerManager().SetTimer(dashHandle, this, &Ar_character::DashToggle, dashTimer, true);
