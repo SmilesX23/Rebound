@@ -44,17 +44,17 @@ void Ar_character::SetupPlayerInputComponent(class UInputComponent* InputCompone
 
 void Ar_character::MoveVertical(float inputAxisY)
 {
-	if (!bDisableMovment) AddMovementInput(camDir.ForwardVector, inputAxisY*-1);
+	if (!bDisableMovment && !bIsStunned) AddMovementInput(camDir.ForwardVector, inputAxisY*-1);
 }
 
 void Ar_character::MoveHorizontal(float inputAxisX)
 {
-	if (!bDisableMovment) AddMovementInput(camDir.RightVector, inputAxisX*-1);
+	if (!bDisableMovment && !bIsStunned) AddMovementInput(camDir.RightVector, inputAxisX*-1);
 }
 
 void Ar_character::DashToggle()
 {	
-	if (bCanDash)
+	if (bCanDash && !bIsStunned)
 	{
 		if (!bIsDashing) {
 			bDisableMovment = true;
