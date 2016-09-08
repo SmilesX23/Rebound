@@ -32,7 +32,6 @@ void Ar_character::Tick( float DeltaTime )
 	Super::Tick( DeltaTime );
 
 	camRot = FRotator(0, UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0)->GetCameraRotation().Yaw, 0);
-	//UE_LOG(LogTemp, Warning, TEXT("CamRot = %f"), camRot.Yaw); //to check camera rotation log
 }
 
 // Called to bind functionality to input
@@ -63,7 +62,7 @@ void Ar_character::DashToggle()
 			dashVector = GetActorForwardVector();
 			GetCapsuleComponent()->AddImpulse(dashVector * dashSpeed);
 			GetCapsuleComponent()->SetEnableGravity(false);
-			GetWorld()->GetTimerManager().SetTimer(dashHandle, this, &Ar_character::DashToggle, dashTimer, true);
+			GetWorld()->GetTimerManager().SetTimer(dashHandle, this, &Ar_character::DashToggle, dashTimer, false);
 		}
 		else
 		{
@@ -85,7 +84,7 @@ void Ar_character::DashCoolDownToggle()
 		bCanDash = false;
 		GetMesh()->SetScalarParameterValueOnMaterials("SpecialEmissiveStrength", 80.0f);
 		dashCoolDownMesh->ToggleVisibility();
-		GetWorld()->GetTimerManager().SetTimer(dashHandle, this, &Ar_character::DashCoolDownToggle, dashCoolDownTimer, true);
+		GetWorld()->GetTimerManager().SetTimer(dashHandle, this, &Ar_character::DashCoolDownToggle, dashCoolDownTimer, false);
 	}
 	else
 	{
@@ -98,8 +97,10 @@ void Ar_character::DashCoolDownToggle()
 
 void Ar_character::DashCancel()
 {
-	GetWorld()->GetTimerManager().ClearTimer(dashHandle);
-	DashToggle();
+	if (bIsDashing) {
+		GetWorld()->GetTimerManager().ClearTimer(dashHandle);
+		DashToggle();
+	}
 }
 
 
