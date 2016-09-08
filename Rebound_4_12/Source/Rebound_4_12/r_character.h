@@ -11,7 +11,7 @@ class REBOUND_4_12_API Ar_character : public ACharacter
 	GENERATED_BODY()
 
 private:
-	FVector camDir;
+	FRotator camRot;
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -24,6 +24,8 @@ public:
 		bool bInvincible;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bCanDash;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool DisableActions;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bIsDashing;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

@@ -2,7 +2,7 @@
 
 #include "Rebound_4_12.h"
 #include "r_character.h"
-
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 Ar_character::Ar_character()
@@ -31,30 +31,29 @@ void Ar_character::Tick( float DeltaTime )
 {
 	Super::Tick( DeltaTime );
 
-	if (GEngine) camDir = FVector(0,0,GEngine->GetFirstLocalPlayerController(GetWorld())->PlayerCameraManager->GetCameraRotation().Yaw);
-
+	camRot = FRotator(0, UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0)->GetCameraRotation().Yaw, 0);
+	//UE_LOG(LogTemp, Warning, TEXT("CamRot = %f"), camRot.Yaw); //to check camera rotation log
 }
 
 // Called to bind functionality to input
 void Ar_character::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 {
 	Super::SetupPlayerInputComponent(InputComponent);
-
 }
 
 void Ar_character::MoveVertical(float inputAxisY)
 {
-	if (!bDisableMovment && !bIsStunned) AddMovementInput(camDir.ForwardVector, inputAxisY*-1);
+	if (!bDisableMovment) AddMovementInput(UKismetMathLibrary::GetForwardVector(camRot), inputAxisY);
 }
 
 void Ar_character::MoveHorizontal(float inputAxisX)
 {
-	if (!bDisableMovment && !bIsStunned) AddMovementInput(camDir.RightVector, inputAxisX*-1);
+	if (!bDisableMovment) AddMovementInput(UKismetMathLibrary::GetRightVector(camRot), inputAxisX);
 }
 
 void Ar_character::DashToggle()
 {	
-	if (bCanDash && !bIsStunned)
+	if (bCanDash && !DisableActions)
 	{
 		if (!bIsDashing) {
 			bDisableMovment = true;
