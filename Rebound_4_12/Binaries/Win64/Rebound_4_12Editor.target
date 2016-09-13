@@ -2,7 +2,7 @@
 	"TargetName" : "Rebound_4_12Editor",
 	"Platform" : "Win64",
 	"Configuration" : "Development",
-	"BuildId" : "b8b2d25e-334b-4869-a66b-cb2c54b3d83b",
+	"BuildId" : "3fc0bf9a-7622-46c3-b0fb-062eecf88256",
 	"Version" : 
 	{
 		"MajorVersion" : 4,
@@ -15,15 +15,15 @@
 	"BuildProducts" :
 	[
 		{
-			"Path" : "$(ProjectDir)/Binaries/Win64/UE4Editor-Rebound_4_12-8500.dll",
+			"Path" : "$(ProjectDir)/Binaries/Win64/UE4Editor-Rebound_4_12-3455.dll",
 			"Type" : "DynamicLibrary"
 		},
 		{
-			"Path" : "$(ProjectDir)/Binaries/Win64/UE4Editor-Rebound_4_12-8500.pdb",
+			"Path" : "$(ProjectDir)/Binaries/Win64/UE4Editor-Rebound_4_12-3455.pdb",
 			"Type" : "SymbolFile"
 		},
 		{
-			"Path" : "$(ProjectDir)/Intermediate/Build/Win64/UE4Editor/Development/UE4Editor-Rebound_4_12-8500.lib",
+			"Path" : "$(ProjectDir)/Intermediate/Build/Win64/UE4Editor/Development/UE4Editor-Rebound_4_12-3455.lib",
 			"Type" : "ImportLibrary"
 		}
 	],
