@@ -5,7 +5,7 @@
 #include "GameFramework/PlayerState.h"
 
 #include "R_S_CustomCharacter.h"
-#include "Net/UnrealNetwork.h"
+#include "UnrealNetwork.h"
 
 #include "R_PlayerState.generated.h"
 
@@ -18,28 +18,23 @@ class REBOUND_4_12_API AR_PlayerState : public APlayerState
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)//, Replicated)
-		int32 PlayerNum;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)//, Replicated)
-		int32 PlayerScore;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
+		int32 PlayerNum = -1;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)//, Replicated)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
+		int32 PlayerScore = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		FR_S_CustomCharacter CusChar;
 
 	//constructor
-	AR_PlayerState();
+	AR_PlayerState(const FObjectInitializer& ObjectInitializer);
 
 	//event tick
 	virtual void Tick(float DeltaSeconds) override;
 
+	virtual void CopyProperties(class APlayerState * PlayerState) override;
 
-	//void AR_PlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutlifetimeProps) const
-	//{
-	//	//Super::GetLifetimeReplicatedProps(OutlifetimeProps);
+	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutlifetimeProps) const;
 
-	//	DOREPLIFETIME(AR_PlayerState, PlayerNum);
-	//	DOREPLIFETIME(AR_PlayerState, PlayerScore);
-	//	DOREPLIFETIME(AR_PlayerState, CusChar);
-	//}
 };
