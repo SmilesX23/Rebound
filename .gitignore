@@ -49,9 +49,9 @@ Rebound_4_12/Binaries/
 !Rebound/Binaries/Win64/UE4Editor.modules
 !Rebound/Binaries/Win64/ReboundEditor.target
 
-!Rebound_4_12/Binaries/Win64/UE4Editor-Rebound.dll
+!Rebound_4_12/Binaries/Win64/UE4Editor-Rebound_4_12.dll
 !Rebound_4_12/Binaries/Win64/UE4Editor.modules
-!Rebound_4_12/Binaries/Win64/ReboundEditor.target
+!Rebound_4_12/Binaries/Win64/Rebound_4_12Editor.target
 
 # Builds
 Rebound/Build/*
@@ -81,3 +81,5 @@ Rebound_4_12/Content/BluePrints/TestAssets/Target.uasset
 Rebound_UE4 4.11/*
 Rebound/Rebound.uproject
 Rebound_4_12/Rebound_4_12.VC.db
+Rebound_4_12/Binaries/Win64/UE4Editor-Rebound_4_12.pdb
+Rebound/Rebound.VC.db

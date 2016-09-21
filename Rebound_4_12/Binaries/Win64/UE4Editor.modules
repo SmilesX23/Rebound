@@ -1,0 +1,12 @@
+{
+	"Changelist" : 3039270,
+	"BuildId" : "b8b2d25e-334b-4869-a66b-cb2c54b3d83b",
+	"Modules" : 
+	{
+<<<<<<< HEAD
+		"Rebound_4_12" : "UE4Editor-Rebound_4_12-8500.dll"
+=======
+		"Rebound_4_12" : "UE4Editor-Rebound_4_12-2490.dll"
+>>>>>>> refs/remotes/origin/Kieran's-Branch
+	}
+}
