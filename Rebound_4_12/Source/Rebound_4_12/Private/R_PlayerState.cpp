@@ -10,7 +10,7 @@ void AR_PlayerState::Tick(float DeltaTime)
 
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 1, FColor::Emerald, FString::FromInt(PlayerNum));
+		//GEngine->AddOnScreenDebugMessage(-1, 1, FColor::Emerald, FString::FromInt(PlayerNum));
 	}
 }
 
