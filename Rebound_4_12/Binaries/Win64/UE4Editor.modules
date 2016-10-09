@@ -1,8 +1,8 @@
 {
 	"Changelist" : 3039270,
-	"BuildId" : "3fc0bf9a-7622-46c3-b0fb-062eecf88256",
+	"BuildId" : "",
 	"Modules" : 
 	{
-		"Rebound_4_12" : "UE4Editor-Rebound_4_12-6643.dll"
+		"Rebound_4_12" : "UE4Editor-Rebound_4_12-4285.dll"
 	}
 }

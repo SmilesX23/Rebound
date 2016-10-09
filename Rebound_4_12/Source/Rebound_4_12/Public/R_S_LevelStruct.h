@@ -23,6 +23,6 @@ struct FR_S_LevelStruct
 		int32 Rounds;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Level")
-		AR_A_Mutator* Mutator;
+		TSubclassOf<AR_A_Mutator> Mutator;
 	
 };
