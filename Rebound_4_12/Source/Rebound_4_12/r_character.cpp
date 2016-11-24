@@ -103,5 +103,24 @@ void Ar_character::DashCancel()
 	}
 }
 
+void Ar_character::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
+	DOREPLIFETIME(Ar_character, playerID);
+	DOREPLIFETIME(Ar_character, bDisableMovment);
+	DOREPLIFETIME(Ar_character, bDisableAim);
+	DOREPLIFETIME(Ar_character, bInvincible);
+	DOREPLIFETIME(Ar_character, bCanDash);
+	DOREPLIFETIME(Ar_character, DisableActions);
+	DOREPLIFETIME(Ar_character, bIsDashing);
+	DOREPLIFETIME(Ar_character, bIsStunned);
+	DOREPLIFETIME(Ar_character, dashTimer);
+	DOREPLIFETIME(Ar_character, dashCoolDownTimer);
+	DOREPLIFETIME(Ar_character, dashSpeed);
+	DOREPLIFETIME(Ar_character, dashVector);
+	DOREPLIFETIME(Ar_character, dashHandle);
+	DOREPLIFETIME(Ar_character, RunSpeed);
+	DOREPLIFETIME(Ar_character, ChargeRunSpeed);
+}
 

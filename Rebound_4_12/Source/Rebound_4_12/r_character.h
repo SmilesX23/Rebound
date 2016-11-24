@@ -3,6 +3,9 @@
 #pragma once
 
 #include "GameFramework/Character.h"
+
+#include "UnrealNetwork.h"
+
 #include "r_character.generated.h"
 
 UCLASS()
@@ -14,31 +17,32 @@ private:
 	FRotator camRot;
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//TODO find variables that dont need to be replicated
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		int playerID;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		bool bDisableMovment;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		bool bDisableAim;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		bool bInvincible;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		bool bCanDash;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		bool DisableActions;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		bool bIsDashing;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated)
 		bool bIsStunned;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category="Dash")
 		float dashTimer;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Dash")
 		float dashCoolDownTimer;	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Dash")
 		float dashSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Dash")
 		FVector dashVector;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dash")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Dash")
 		FTimerHandle dashHandle;
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Dash")
 		UParticleSystem* dashParticle;
@@ -46,15 +50,15 @@ public:
 		UParticleSystem* dashCooldownParticle;
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Dash")
 		USceneComponent* dashCoolDownMesh;
-	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite,Category = "Dash")
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Dash")
 		USceneComponent* dashCooldownAudio;
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Dash")
 		USceneComponent* dashReadyAudio;
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadWrite, Category = "Dash")
 		USceneComponent* dashAudio;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Basic Movement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Basic Movement")
 		float RunSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Basic Movement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Basic Movement")
 		float ChargeRunSpeed;
 
 	// Sets default values for this character's properties
@@ -68,6 +72,9 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
+
+	//sets variables as replicated
+	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutlifetimeProps) const;
 
 	UFUNCTION(BlueprintCallable, Category="Movement")
 		void MoveVertical(float inputAxisY);
