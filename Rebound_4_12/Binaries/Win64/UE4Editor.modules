@@ -3,6 +3,10 @@
 	"BuildId" : "",
 	"Modules" : 
 	{
+<<<<<<< HEAD
 		"Rebound_4_12" : "UE4Editor-Rebound_4_12-3922.dll"
+=======
+		"Rebound_4_12" : "UE4Editor-Rebound_4_12-4285.dll"
+>>>>>>> refs/remotes/origin/Alex-Network-Branch
 	}
 }
