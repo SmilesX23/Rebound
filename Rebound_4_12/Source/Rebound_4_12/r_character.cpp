@@ -47,7 +47,15 @@ void Ar_character::MoveVertical(float inputAxisY)
 
 void Ar_character::MoveHorizontal(float inputAxisX)
 {
-	if (!bDisableMovment) AddMovementInput(UKismetMathLibrary::GetRightVector(camRot), inputAxisX);
+	if (!bDisableMovment)
+	{
+		AddMovementInput(UKismetMathLibrary::GetRightVector(camRot), inputAxisX);
+
+		FVector temp = UKismetMathLibrary::GetRightVector(camRot);
+		FString VeryCleanString = FString::SanitizeFloat(inputAxisX);
+
+		UE_LOG(LogTemp, Warning, TEXT("Your message %s"), *temp.ToString());
+	}
 }
 
 void Ar_character::DashToggle()
